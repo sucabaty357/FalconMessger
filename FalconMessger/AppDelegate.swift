@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +17,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        ThemeManager.applyTheme(theme: ThemeManager.currentTheme())
+        FirebaseApp.configure()
+        Database.database().isPersistenceEnabled = true
+        userDefaults.configureInitialLaunch()
+        
+        let tabBarController = GeneralTabBarController()
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.rootViewController = tabBarController
+        window?.makeKeyAndVisible()
+        window?.backgroundColor = ThemeManager.currentTheme().generalBackgroundColor
+        tabBarController.presentOnboardingController()
         return true
     }
 
