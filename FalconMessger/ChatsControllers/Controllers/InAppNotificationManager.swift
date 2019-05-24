@@ -100,13 +100,13 @@ class InAppNotificationManager: NSObject {
   }
   fileprivate func conversationAvatar(resource: String?, isGroupChat: Bool) -> Any {
     let placeHolderImage = isGroupChat ? #imageLiteral(resourceName: "GroupIcon") : #imageLiteral(resourceName: "UserpicIcon")
-    guard let imageURL = resource, imageURL != "" else { return placeHolderImage! }
+    guard let imageURL = resource, imageURL != "" else { return placeHolderImage }
     return URL(string: imageURL)!
   }
   
   fileprivate func conversationPlaceholder(isGroupChat: Bool) -> Data? {
     let placeHolderImage = isGroupChat ? #imageLiteral(resourceName: "GroupIcon") : #imageLiteral(resourceName: "UserpicIcon")
-    guard let data = placeHolderImage?.asJPEGData else {
+    guard let data = placeHolderImage.asJPEGData else {
       return nil
     }
     return data
@@ -119,7 +119,7 @@ class InAppNotificationManager: NSObject {
                                     textColor: ThemeManager.currentTheme().generalTitleColor,
                                     dragIndicatordColor: ThemeManager.currentTheme().generalTitleColor) {}
     guard let rc = UIApplication.shared.keyWindow?.rootViewController else { return }
-    Pigeon_project.show(shout: announcement, to: rc)
+    FalconMessger.show(shout: announcement, to: rc)
   }
   
   fileprivate func playNotificationSound() {

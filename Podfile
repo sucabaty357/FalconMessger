@@ -9,12 +9,12 @@ target 'FalconMessger' do
   pod 'Firebase/Database'
   pod 'Firebase/Storage'
 
-  pod 'SDWebImage', '~>3.8'
+  pod 'SDWebImage'
+  pod 'CropViewController', '~> 2.4.0' ,:modular_headers => true
   pod 'PhoneNumberKit'
   pod 'Firebase/Messaging'
   pod 'FLAnimatedImage', :modular_headers => true
-  pod 'FTPopOverMenu_Swift'
-  pod 'CropViewController'
+  pod 'FTPopOverMenu_Swift', '~> 0.1.4'
   pod 'ARSLineProgress'  
   # Pods for FalconMessger
 
