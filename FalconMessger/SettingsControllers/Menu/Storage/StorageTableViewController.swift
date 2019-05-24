@@ -86,7 +86,7 @@ class StorageTableViewController: UITableViewController {
       oversizeAlert.popoverPresentationController?.sourceView = self.view
       oversizeAlert.popoverPresentationController?.sourceRect = CGRect(x: view.bounds.midX, y:  view.bounds.maxY, width: 0, height: 0)
       
-      let cachedSize = SDImageCache.shared.totalDiskSize()
+        let cachedSize = SDImageCache.shared.totalDiskSize()
       
       let cachedSizeInMegabyes = (Double(cachedSize) * 0.000001).round(to: 1)
       

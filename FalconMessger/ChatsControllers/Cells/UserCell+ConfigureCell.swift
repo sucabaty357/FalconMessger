@@ -35,7 +35,7 @@ extension UserCell {
     
     if let url = conversations[indexPath.row].chatThumbnailPhotoURL, !isPersonalStorage, url != "" {
       profileImageView.sd_setImage(with: URL(string: url), placeholderImage: placeHolderImage, options:
-      [.continueInBackground, .scaleDownLargeImages, .avoidAutoSetImage]) { (image, error, cacheType, url) in
+      [.continueInBackground, .avoidAutoSetImage]) { (image, error, cacheType, url) in
         guard image != nil, cacheType != SDImageCacheType.memory, cacheType != SDImageCacheType.disk else {
           self.profileImageView.image = image
           return
